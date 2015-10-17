@@ -1,114 +1,94 @@
-Amortized Yers - How long the loan is - many are 30 years
+# Data set features
 
-AnnualMainDesc
+### Amortized Years
+How long the loan is - many are 30 years
+
+### AnnualMainDesc
 Is there a mandatory maintainance organization Yes or No
 
-AnnualMainfee
-
+### AnnualMainfee
 How much os the yearly maintaince fee?
 
-Bath - ignore
+### Bath
+Ignore
 
-Bathsfull - how many full baths does house have
+### Bathsfull
+how many full baths does house have
 
-bathshalf
+### bathshalf
 How many 1/2 baths does the house have
 
-Countertops - 
+### Countertops
 What countertops does the house have (granite may indicate higher value)
 
-daysonmarket
+### daysonmarket
 How many days did it take to sell
 
-Defects - known defects may indicate problems with the house - known defects shouild be linked to lower value
+### Defects
+Known defects may indicate problems with the house - known defects should be linked to lower value
 
-Floos
-
+### Floors
 What type of floor - real wood is better than laminate
 
-Foundation - slab mostly - house is on a slab foundation
+### Foundation
+Slab mostly - house is on a slab foundation
 
-garagecap
+### garagecap
+How many cars can fit int he garage
 
-how many cars can fit int he garage
-
-
-GPEXT_LONGITUDE and LATITUDE
-
+### GPEXT_LONGITUDE and LATITUDE
 Lat and long for the property
 
+### LEGALSUBDIVISION
+Highly significant - what subdivision is the house in - very significant
 
-LEGALSUBDIVISION
-highly significant - what subdivision is the house in - very significant
+### Listprice
+Beginning asking price
 
-Listprice
+### Loanamountnew
+How much was borrowed to buy the hoiusse
 
-Beginining asking price
+### loaninterestrate
+Interest rate on loan
 
-Loanamountnew - how much was borrowed to buy the hoiusse
+### lossmitigation
+Is the sale under terms of distress - motivated seller?
 
-loaninterestrate
-interest rate on loan
-
-lossmitigation
-is the sale under terms of distress - motivated seller?
-
-lotsize
+### lotsize
 Lot size
 
-newconstruction - is the house new construction or not?
+### newconstruction
+Is the house new construction or not?
 
-
-pricesqftlist?
+### pricesqftlist
 List price of house by square footage
 
-PRICESQFTSOLD
-
+### PRICESQFTSOLD
 Sold price per square foot
 
-realremarks
+### realremarks
 private agent instructions or comments
 
-Remarks
-
+### Remarks
 Public agent comments meant for everyone to see
 
+### repairsller
+Is seller contributing to the repairs for the house - may indicate distress
 
-repairsller
-
-is seller contributing to the repairs for the house - may indicate distress
-
-salesprice
-
+### salesprice
 sales price
 
-schooldistrict
+### schooldistrict
+School District
 
-SECNUM
-
+### SECNUM
 Section number of the subdivision - may have some correlation to value
 
-
-
-SQFTBLDG
-
+### SQFTBLDG
 SQUARE FOOTAGE OF THE BUILDING
 
-
-
-Stories
-
+### Stories
 how many stories the house has
-STYLE
 
+### STYLE
 construction style
-
-
-
-
-
-
-
-
-
-
