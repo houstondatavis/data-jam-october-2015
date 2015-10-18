@@ -13,10 +13,10 @@ October [data jam](http://www.meetup.com/Houston-Data-Visualization-Meetup/event
 How long the loan is - many are 30 years
 
 ### AnnualMainDesc
-Is there a mandatory maintainance organization Yes or No
+Is there a mandatory maintenance organization Yes or No
 
 ### AnnualMainfee
-How much os the yearly maintaince fee?
+How much is the yearly maintenance fee?
 
 ### Bath
 Ignore
@@ -43,7 +43,7 @@ What type of floor - real wood is better than laminate
 Slab mostly - house is on a slab foundation
 
 ### garagecap
-How many cars can fit int he garage
+How many cars can fit in the garage
 
 ### GPEXT_LONGITUDE and LATITUDE
 Lat and long for the property
@@ -55,7 +55,7 @@ Highly significant - what subdivision is the house in - very significant
 Beginning asking price
 
 ### Loanamountnew
-How much was borrowed to buy the hoiusse
+How much was borrowed to buy the house
 
 ### loaninterestrate
 Interest rate on loan
