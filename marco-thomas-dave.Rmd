@@ -1,0 +1,84 @@
+---
+title: "marco-thomas-dave"
+output: html_document
+---
+# Houston Dataviz Datajam on homeprice data
+By Marco, Thomas and Dave
+
+
+```{r, echo=FALSE, cache=FALSE}
+library(ggplot2)
+library(data.table)
+library(sqldf)
+library(ggmap)
+df <- read.csv('./Sales10k.csv',header=TRUE,sep=",",stringsAsFactors=FALSE)
+sales <- data.table(df)
+sales <- sales[,lon := as.numeric((GPEXT_LONGITUDE))]
+sales <- sales[,lat := as.numeric((GPEXT_LATITUDE))]
+sales <- sales[,lat := as.numeric((GPEXT_LATITUDE))]
+sales <- sales[,CLOSEDDATE := as.Date(CLOSEDDATE, format = "%m/%d/%Y %M:%H")]
+```
+
+Histogram of home sale prices
+---
+```{r, echo=FALSE, cache=FALSE}
+ggplot(sales) + geom_histogram(aes(x=SALESPRICE), binwidth=50000) + xlim(c(0,1e6)) + theme_classic()
+```
+
+Map - New Construction vs. Existing
+---
+Distrubution of New Constructions vs. Existing Constructions. This tells where
+homes are being built. 
+Data with out-of-range coordinates have been filtered out.
+```{r, echo=FALSE, cache=FALSE}
+# qmplot(lon, lat, data = downtown, maptype = "toner-background", color = I("red"))
+# qmplot(lon, lat, data = sales[floor(lon) == -96][floor(lat) == 29], maptype = "toner-background", color = I("red"))
+ggmap(get_map(location=c(lon=-95.75, lat=29.5))) + 
+  geom_point(aes(x=lon, y=lat), data=sales[floor(lon) == -96][floor(lat) == 29]) + facet_grid(. ~ NEWCONSTRUCTION)
+```
+
+
+Home Sales by School District
+---
+This map shows in which school district homes have been sold.
+```{r, echo=FALSE, cache=FALSE}
+# qmplot(lon, lat, data = downtown, maptype = "toner-background", color = I("red"))
+# qmplot(lon, lat, data = sales[floor(lon) == -96][floor(lat) == 29], maptype = "toner-background", color = I("red"))
+ggmap(get_map(location=c(lon=-95.75, lat=29.5))) + 
+  geom_point(aes(x=lon, y=lat, color=factor(SCHOOLDISTRICT)), data=sales[floor(lon) == -96][floor(lat) == 29])
+```
+
+
+Mean sales price in each school district
+---
+```{r, echo=FALSE, cache=FALSE}
+# qmplot(lon, lat, data = downtown, maptype = "toner-background", color = I("red"))
+# qmplot(lon, lat, data = sales[floor(lon) == -96][floor(lat) == 29], maptype = "toner-background", color = I("red"))
+setkeyv(sales,c('SCHOOLDISTRICT'))
+data <- sales[SALESPRICE < 1e6][floor(lon) == -96][floor(lat) == 29][,list(avg_price=mean(SALESPRICE)), by=SCHOOLDISTRICT]
+
+ggmap(get_map(location=c(lon=-95.75, lat=29.5))) + 
+  geom_point(aes(x=lon, y=lat, color=avg_price), data=sales[data]) + scale_color_continuous(low="red", high="blue") # + facet_grid(. ~ year(CLOSEDDATE))
+```
+
+
+Price over time by zipcode
+---
+What feature in the data predicts property values (over time)?
+
+```{r, echo=FALSE, cache=FALSE}
+ggplot(sales[,list(mean_price=mean(SALESPRICE)), by=list(year(CLOSEDDATE), ZIPCODE)]) + geom_line(aes(x=year, y=mean_price,color=factor(ZIPCODE),group=ZIPCODE)) + ylim(c(0, 300000))
+```
+
+Price over time by school district
+---
+```{r, echo=FALSE, cache=FALSE}
+ggplot(sales[,list(mean_price=mean(SALESPRICE)), by=list(year(CLOSEDDATE),NEWCONSTRUCTION, SCHOOLDISTRICT)]) + geom_line(aes(x=year, y=mean_price,color=factor(SCHOOLDISTRICT),group=SCHOOLDISTRICT)) + ylim(c(0, 300000)) + facet_grid(NEWCONSTRUCTION ~ .)
+```
+
+Appendix
+---
+price per sqft
+```{r, echo=FALSE, cache=FALSE}
+ggplot(sales) + geom_point(aes(x=as.numeric(SALESPRICE) / as.numeric(SQFTBLDG), y=as.numeric(PRICESQFTSOLD) ))
+```
