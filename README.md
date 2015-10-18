@@ -1,11 +1,6 @@
 # About
 
-October [data jam](http://www.meetup.com/Houston-Data-Visualization-Meetup/events/226018977/) with Houston housing data
-
-# Showcase
-
-* [Days on market &amp; to closing by subdivision](http://pandafulmanda.github.io/data-jam-october-2015/)
-  * [Code](https://github.com/pandafulmanda/data-jam-october-2015)
+October [data jam](http://houstondatavis.github.io/data-jam-october-2015/) with Houston housing data
 
 # Data set features
 
