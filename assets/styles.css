@@ -1,14 +1,5 @@
 .list-group-item[data-plot] {
   cursor: pointer;
-  transition: background-color 0.1s ease-in-out;
-}
-
-.list-group-item[data-plot]:hover {
-  background-color: rgba(166, 206, 227, 0.1);
-}
-
-.list-group-item[data-plot] h3:hover {
-  font-style: italic;
 }
 
 .list-group-item a {
@@ -24,4 +15,26 @@
   background-color: rgba(178, 223, 138, 0.5);
   color: rgba(51, 160, 44, 1);
   border-color: rgba(51, 160, 44, 1);
+}
+
+svg, .list-group-item a pre {
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -moz-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+svg rect {
+  transition: fill 0.2s ease-in-out;
+  -ms-transition: fill 0.2s ease-in-out;
+  -moz-transition: fill 0.2s ease-in-out;
+  -webkit-transition: fill 0.2s ease-in-out;
+}
+
+svg:hover g:first-child rect {
+  fill: rgba(0, 0, 0, 0.15);
+}
+
+svg:hover {
+  background: rgba(166, 206, 227, 0.1);
 }
